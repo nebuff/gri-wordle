@@ -7,7 +7,7 @@ description: A daily Wordle with a full-screen Grimoire keyboard and a six-guess
 license: Apache-2.0
 license_url: https://github.com/nebuff/gri-wordle/blob/main/LICENSE
 repository: https://github.com/nebuff/gri-wordle
-min_grimoire_version: 2.3.0
+min_grimoire_version: 2.1.0
 platforms: [all]
 artifact:
   path: app.wasm
