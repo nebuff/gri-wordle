@@ -23,8 +23,9 @@ download fails, the board stays playable only after **Tap to retry** succeeds.
 3. Accept the trust page and install.
 4. Open **Gri Wordle** from the home app row or **All apps**.
 
-The app needs the `network:http` and `storage:app-local` capabilities. It hides the shared status
-bar to give the board the whole display.
+The app needs the `network:http` and `storage:app-local` capabilities. It shows Grimoire's shared
+status bar above the board, with the clock, date, battery and connection indicators. Its icon is
+the bundled `icon.ico`, a custom Wordle-style tile mark drawn for this app.
 
 ## Play
 
@@ -48,8 +49,9 @@ make
 ```
 
 `make` builds `target/wasm32-unknown-unknown/release/gri_wordle.wasm`, copies it to `app.wasm` at
-the repository root, and updates `artifact.sha256` and `artifact.size` in `package.yaml`. Publish
-both files, with a new version, for an update.
+the repository root, and updates `artifact.sha256`, `artifact.size`, `spec.icon_sha256` and
+`spec.icon_size` in `package.yaml`. Publish `app.wasm` and `icon.ico`, with a new version, for an
+update.
 
 The source is deliberately small and has no allocator:
 
@@ -57,13 +59,15 @@ The source is deliberately small and has no allocator:
 - `src/words.txt` — the readable public-domain five-letter dictionary source
 - `src/words.bin` — the generated sorted, fixed-width dictionary the app binary-searches
 - `tools/make_words.py` — regenerates `words.bin` when the dictionary source changes
-- `tools/package.py` — writes the artifact digest and size into the manifest
+- `tools/make_icon.py` — redraws `icon.ico`; it needs only Python 3
+- `tools/package.py` — writes the artifact and icon digests and sizes into the manifest
 
 `make check` builds without replacing the published artifact.
 
 ## Notes
 
 This is an unofficial example and is not affiliated with The New York Times. The NYT endpoint is
-used as the daily word source; the app does not reproduce the NYT interface. The dictionary is
-from [`dwyl/english-words`](https://github.com/dwyl/english-words) under the Unlicense; see
+used as the daily word source; the app does not reproduce the NYT interface, and its icon is an
+original Wordle-style tile mark rather than the NYT logo. The dictionary is from
+[`dwyl/english-words`](https://github.com/dwyl/english-words) under the Unlicense; see
 `THIRD_PARTY_NOTICES.md`.

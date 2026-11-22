@@ -1,9 +1,9 @@
 //! Gri Wordle: a full-screen Wordle app for Grimoire 2.3+.
 //!
 //! The app fetches the day's answer from the public NYT Wordle endpoint, keeps the six guesses
-//! and their marks in the app's own `state/runtime.bin`, and draws the whole game with the
-//! Grimoire app ABI. It is no_std: fixed buffers only, no allocator, no filesystem and no
-//! background threads.
+//! and their marks in the app's own `state/runtime.bin`, draws the whole game with the Grimoire
+//! app ABI, and shows Grimoire's shared status bar above the game. It is no_std: fixed buffers
+//! only, no allocator, no filesystem and no background threads.
 
 #![no_std]
 
@@ -938,7 +938,7 @@ pub extern "C" fn app_pointer(phase: i32, x: i32, y: i32, _source: i32) {
 
 #[no_mangle]
 pub extern "C" fn app_status_bar() -> i32 {
-    0
+    1
 }
 
 #[no_mangle]

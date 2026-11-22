@@ -10,7 +10,7 @@ app: app.wasm
 src/words.bin: src/words.txt tools/make_words.py
 	python3 tools/make_words.py
 
-app.wasm: src/lib.rs src/words.rs src/words.bin Cargo.toml
+app.wasm: src/lib.rs src/words.rs src/words.bin Cargo.toml icon.ico
 	cargo build --release --target $(TARGET)
 	cp $(WASM) app.wasm
 	python3 tools/package.py
