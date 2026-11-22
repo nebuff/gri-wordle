@@ -1,0 +1,17 @@
+[package]
+name = "gri-wordle"
+version = "1.0.0"
+edition = "2021"
+description = "A daily Wordle app for Grimoire"
+license = "Apache-2.0"
+repository = "https://github.com/nebuff/gri-wordle"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

@@ -1,0 +1,21 @@
+name: Gri Wordle
+id: com.nebuff.wordle
+type: app
+version: 1.0.0
+author: nebuff
+description: A daily Wordle with a full-screen Grimoire keyboard and a six-guess board.
+license: Apache-2.0
+license_url: https://github.com/nebuff/gri-wordle/blob/main/LICENSE
+repository: https://github.com/nebuff/gri-wordle
+min_grimoire_version: 2.3.0
+platforms: [all]
+artifact:
+  path: app.wasm
+  sha256: 994f2b924b46aa2abc4f49e095d35e4aedeaa84f3517d87a83eca15c546b489d
+  size: 88445
+capabilities: [storage:app-local, network:http]
+spec:
+  runtime: wasm
+  entry: _start
+  icon: grid
+  status_bar: false
